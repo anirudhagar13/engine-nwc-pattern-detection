@@ -8,6 +8,7 @@
 	bar.finish()`<br>
 
 - Project Structure following [standard conventions](https://data-flair.training/blogs/python-best-practices/).
+- The code also practises *type-hinting*, even though
 
 # Code conventions:
 - Discourage creation of single library or single constants file (Harder to maintain)

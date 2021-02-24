@@ -5,7 +5,7 @@ import json
 from .constants import *
 
 
-def parse_json(file_path):
+def parse_json(file_path: str) -> dict:
     """Summary
         Load and parse json file
     Args:
@@ -15,7 +15,7 @@ def parse_json(file_path):
         return json.load(file_obj)
 
 
-def verify_config(config_dict):
+def verify_config(config_dict: dict) -> None:
     """Summary
         Verification of configuration received
     Args:
@@ -32,7 +32,7 @@ def verify_config(config_dict):
     raise NameError('All Configuration not present.')
 
 
-def run(file_path):
+def run(file_path: str) -> dict:
     """Summary
     Parses and returns configuration from json
     Args:
