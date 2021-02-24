@@ -9,3 +9,9 @@
 
 - Project Structure following [standard conventions](https://data-flair.training/blogs/python-best-practices/).
 
+# Code conventions:
+- Discourage creation of single library or single constants file (Harder to maintain)
+- Discouraged unecessary logging 
+- Until doing something with error, no need to have try and catches
+- Tests verified with following [asserts](https://docs.python.org/3/library/unittest.html#unittest.TestCase.debug)
+

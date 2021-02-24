@@ -1,0 +1,14 @@
+{
+	"data_file_path": "",
+	"support_threshold": 0.004,
+	"crossK_threshold": 1,
+	"max_pattern_length": 3,
+	"min_pattern_length": 3,
+	"anomalous_window_length": 3,
+	"number_of_discretizer_bins": 10,
+	"attribute_names": ["*"],
+	"anomalous_target_column": "NOxTheoryppm",
+	"anomalous_window_strategy": "Threshold",
+	"anomalous_window_threshold": 10,
+	"lag": 1
+}
