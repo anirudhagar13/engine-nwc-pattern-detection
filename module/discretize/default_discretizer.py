@@ -6,10 +6,6 @@ from .discretization_strategy import DiscretizationStrategy
 
 class DefaultDiscretizer(DiscretizationStrategy):
 
-    """Summary
-    To discretize continuous data into ordinals using uniform binning strategy
-    """
-
     def __init__(self, n_bins: int):
         self._n_bins = n_bins
 

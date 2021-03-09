@@ -2,17 +2,9 @@
 Custom concrete strategy for discretization with auto-denoising
 """
 import numpy as np
-from sklearn.preprocessing import KBinsDiscretizer
 from .discretization_strategy import DiscretizationStrategy
 
-# class specific constants
-highest_percentile = 100
-
 class DenoiseDiscretizer(DiscretizationStrategy):
-
-    """Summary
-    To discretize continuous data into ordinals with a custom strategy to denoise
-    """
 
     def __init__(self, n_bins: int):
         self._n_bins = n_bins
