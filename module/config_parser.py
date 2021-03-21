@@ -21,10 +21,10 @@ def verify_config(config_dict: dict) -> None:
     Args:
         config_dict (dict): config_dictionary parsed from json
     """
-    must_present_configs = [lag, data_col_names, data_file_path, max_patt_len,
+    must_present_configs = [lag, feature_col_names, data_file_path, max_patt_len,
                             min_patt_len, supp_threshold, crossK_threshold,
-                            num_of_bins, nw_window_len, nw_target_column,
-                            nw_target_strategy, nw_target_threshold]
+                            num_of_bins, nc_window_len, nc_window_column_name,
+                            nc_window_threshold]
 
     if all(param in config_dict for param in must_present_configs):
         return
@@ -32,7 +32,7 @@ def verify_config(config_dict: dict) -> None:
     raise NameError('All Configuration not present.')
 
 
-def run(file_path: str) -> dict:
+def parse_config(file_path: str) -> dict:
     """Summary
     Parses and returns configuration from json
     Args:

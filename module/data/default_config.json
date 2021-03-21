@@ -1,0 +1,14 @@
+{
+	"data_file_path": "/data/engine_data.csv",
+	"support_threshold": 0.004,
+	"crossK_threshold": 1,
+	"max_pattern_length": 3,
+	"min_pattern_length": 3,
+	"anomalous_window_length": 3,
+	"number_of_discretizer_bins": 10,
+	"attribute_names": ["engrpm","EGRkgph","MSPhum","EngTq"],
+	"anomalous_target_column": "AbsError",
+	"anomalous_window_strategy": "Summation_Threshold",
+	"anomalous_window_threshold": 10,
+	"lag": 1
+}
