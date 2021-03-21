@@ -8,7 +8,7 @@
 	"number_of_discretizer_bins": 10,
 	"attribute_names": ["engrpm","EGRkgph","MSPhum","EngTq"],
 	"anomalous_target_column": "AbsError",
-	"anomalous_window_strategy": "Summation_Threshold",
+	"anomalous_window_strategy": "Mean_Threshold",
 	"anomalous_window_threshold": 10,
 	"lag": 1
 }
