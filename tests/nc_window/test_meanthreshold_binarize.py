@@ -1,6 +1,7 @@
 import unittest
+import numpy as np
 import pandas as pd
-from module.nc_window.meanthreshold_binarize import *
+from module.nc_window import MeanThresholdBinarizer
 
 
 class TestMeanThresholdBinarizer(unittest.TestCase):
@@ -17,10 +18,10 @@ class TestMeanThresholdBinarizer(unittest.TestCase):
                       0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0]
 
         bin_obj = MeanThresholdBinarizer(
-            self.threshold, self.window_length, list())
+            self.threshold, self.window_length)
 
         self.assertListEqual(bin_obj.binarize(
-            self.target_data, 'Target').tolist(), exp_binary)
+            self.target_data, 'Target', list()).tolist(), exp_binary)
 
     def test_binarize_with_idx(self):
         invalid_idx = [4, 12, 15]
@@ -28,10 +29,10 @@ class TestMeanThresholdBinarizer(unittest.TestCase):
                       0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0]
 
         bin_obj = MeanThresholdBinarizer(
-            self.threshold, self.window_length, invalid_idx)
+            self.threshold, self.window_length)
 
         self.assertListEqual(bin_obj.binarize(
-            self.target_data, 'Target').tolist(), exp_binary)
+            self.target_data, 'Target', invalid_idx).tolist(), exp_binary)
 
 
 if __name__ == '__main__':

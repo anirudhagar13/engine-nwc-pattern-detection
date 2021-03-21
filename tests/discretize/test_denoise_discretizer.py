@@ -1,5 +1,6 @@
 import unittest
-from module.discretize.denoise_discretizer import *
+import numpy as np
+from module.discretize import DenoiseDiscretizer
 
 class TestDefaultDiscretizer(unittest.TestCase):
 

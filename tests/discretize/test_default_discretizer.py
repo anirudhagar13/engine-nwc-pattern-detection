@@ -1,5 +1,6 @@
 import unittest
-from module.discretize.default_discretizer import *
+import numpy as np
+from module.discretize import DefaultDiscretizer
 
 class TestDefaultDiscretizer(unittest.TestCase):
 

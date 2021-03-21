@@ -1,6 +1,7 @@
 import unittest
 import numpy as np
-from module.preprocess.invalid_idx_preprocess import *
+import pandas as pd
+from module.preprocess import InvalidIndexPreprocessor
 
 class TestInvalidIndexPreprocessor(unittest.TestCase):
 

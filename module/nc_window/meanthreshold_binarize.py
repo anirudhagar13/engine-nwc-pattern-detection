@@ -8,7 +8,7 @@ from .noncompliant_window_strategy import NWStrategy
 
 class MeanThresholdBinarizer(NWStrategy):
 
-    def __init__(self, threshold: float, window_length: int, invalid_indexes: list):
+    def __init__(self, threshold: float, window_length: int):
         """
         Args:
             threshold (float): Average threshold for non-compliant behavior
@@ -17,15 +17,18 @@ class MeanThresholdBinarizer(NWStrategy):
         """
         self._threshold = threshold
         self._window_length = window_length
-        self._invalid_indexes = invalid_indexes
+        self._invalid_indexes = list()
 
-    def binarize(self, data: pd.DataFrame, target_col: str) -> np.ndarray:
+    def binarize(self, data: pd.DataFrame, target_col: str, invalid_indexes: list) -> np.ndarray:
         """Summary
         Takes continuous data and binarize using threshold as 0 or 1
         """
         # selecting target and index data
         tgt_data = data[target_col].to_numpy()
         wlen = self._window_length
+
+        # initializing invalid indexes
+        self._invalid_indexes = invalid_indexes
 
         # Using for loop instead of list comprehension, due to interpretability
         binary_data = [0] * len(data)
