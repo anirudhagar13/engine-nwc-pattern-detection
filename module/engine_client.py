@@ -6,14 +6,15 @@ import argparse
 import pandas as pd
 
 from .constants import data_file_path, pass_col_name, iter_col_name
-from .constants import nc_window_column_name, feature_col_names, num_of_bins
+from .constants import nc_window_column_name, feature_col_names
 from .constants import formatted_engine_data_file, default_config_file
 from .constants import nc_window_len, nc_window_threshold, seq_idx_name
+from .constants import feature_min_values, feature_bin_intervals
 
 from .config_parser import parse_config
 from .preprocess import InvalidIndexPreprocessor
 from .nc_window import MeanThresholdBinarizer
-from .discretize import DenoiseDiscretizer
+from .discretize import ManualDiscretizer
 from .engine_data import EngineData
 
 # Present working directory
@@ -45,7 +46,9 @@ def init_discretize_strategy(config_dict: dict):
     '''
     Create instance of discretization strategy for attributes
     '''
-    return DenoiseDiscretizer(config_dict[num_of_bins])
+    return ManualDiscretizer(config_dict[feature_col_names],
+                             config_dict[feature_min_values],
+                             config_dict[feature_bin_intervals])
 
 
 def prepare_engine_data(engine_data: pd.DataFrame, config_dict: dict):

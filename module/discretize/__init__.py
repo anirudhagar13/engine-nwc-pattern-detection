@@ -1,3 +1,4 @@
 from .default_discretizer import DefaultDiscretizer
 from .denoise_discretizer import DenoiseDiscretizer
+from .manual_discretizer import ManualDiscretizer
 from .discretization_strategy import DiscretizationStrategy

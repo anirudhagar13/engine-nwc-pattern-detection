@@ -21,9 +21,10 @@ def verify_config(config_dict: dict) -> None:
     Args:
         config_dict (dict): config_dictionary parsed from json
     """
-    must_present_configs = [lag, feature_col_names, data_file_path, max_patt_len,
-                            min_patt_len, supp_threshold, crossK_threshold,
-                            num_of_bins, nc_window_len, nc_window_column_name,
+    must_present_configs = [lag, feature_col_names, data_file_path,
+                            output_file_path, patt_len,
+                            supp_threshold, crossK_threshold,
+                            nc_window_len, nc_window_column_name,
                             nc_window_threshold]
 
     if all(param in config_dict for param in must_present_configs):

@@ -27,7 +27,7 @@ class EngineData:
         # discretizes each column one by one
         for c in feature_col_names:
             arr_data = self._data[c].to_numpy()
-            self._data[c] = self._discretize_strategy.discretize(arr_data)
+            self._data[c] = self._discretize_strategy.discretize(arr_data, c)
 
     def prepare_data(self, nc_window_col_name: str, feature_col_names: list):
         '''

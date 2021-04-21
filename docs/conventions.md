@@ -9,6 +9,7 @@
 
 - Project Structure following [standard conventions](https://data-flair.training/blogs/python-best-practices/).
 - The code also practises *type-hinting*, even though
+- Recursively remove pycache directories: `find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf`
 
 # Code conventions:
 - Discourage creation of single library or single constants file (Harder to maintain)
