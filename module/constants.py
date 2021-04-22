@@ -16,6 +16,7 @@ nc_window_threshold = "anomalous_window_threshold"
 output_type = "output_type"
 feature_min_values = "attribute_min_values"
 feature_bin_intervals = "attribute_bin_intervals"
+topk = "topk"
 
 # Data related constants
 pass_col_name = 'pass'

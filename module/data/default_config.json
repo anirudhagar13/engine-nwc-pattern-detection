@@ -1,6 +1,6 @@
 {
 	"lag": 1,
-	"k": 100,
+	"topk": 100,
 	"output_type": "topk",
 	"data_file_path": "/data/engine_data.csv",
 	"output_file_path": "/data/engine_patterns.csv",

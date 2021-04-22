@@ -5,11 +5,7 @@ import os
 import argparse
 import pandas as pd
 
-from .constants import data_file_path, pass_col_name, iter_col_name
-from .constants import nc_window_column_name, feature_col_names
-from .constants import formatted_engine_data_file, default_config_file
-from .constants import nc_window_len, nc_window_threshold, seq_idx_name
-from .constants import feature_min_values, feature_bin_intervals
+from .constants import *
 
 from .config_parser import parse_config
 from .preprocess import InvalidIndexPreprocessor
@@ -91,8 +87,32 @@ def main(config_path: str):
     print('\n', '*' * 20, ' | ',
           'Engine Data Formatted and Saved', ' | ', '*' * 20, '\n')
 
+    # Mining NWC Patterns
+    column_names = config_dict[feature_col_names] + [target_col_name]
+    output_df = mine_sequence_patterns(formatted_engine_data[column_names],
+                                       target_col_name,
+                                       config_dict[supp_threshold],
+                                       config_dict[crossK_threshold],
+                                       config_dict[patt_len],
+                                       lag=config_dict[lag],
+                                       invalid_seq_indexes=invalid_seq_indexes,
+                                       output_type=config_dict[output_type],
+                                       topk=config_dict[topk])
+    output_df.to_csv(
+        dir_path + config_dict[output_file_path], header=True, index=False)
+    print('\n', '*' * 20, ' | ',
+          'Engine Patterns Mined and Saved', ' | ', '*' * 20, '\n')
+
 
 if __name__ == '__main__':
+    # Hack before pip install
+    from sys import path
+    from os.path import dirname as dir
+
+    path.append(dir(path[0]))
+
+    from nwc_pattern_mining.module import mine_sequence_patterns
+
     # Define the parser, to read the configuration file
     parser = argparse.ArgumentParser(
         description='Finding sequential patterns in Engine Time Series data')

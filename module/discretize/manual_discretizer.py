@@ -28,4 +28,8 @@ class ManualDiscretizer(DiscretizationStrategy):
         # Denoising assuming normal distribution
         def disc_fun(x): return (x - min_value) // interval
 
-        return np.array(list(map(disc_fun, data)))
+        # cutting out negative values
+        disc_values = np.array(list(map(disc_fun, data)))
+        disc_values[disc_values < 0] = 0
+
+        return disc_values
