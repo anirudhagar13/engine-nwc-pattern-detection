@@ -1,0 +1,17 @@
+{
+	"lag": 1,
+	"topk": 100,
+	"output_type": "topk",
+	"data_file_path": "/data/engine_data.csv",
+	"output_file_path": "/data/engine_patterns.csv",
+	"support_threshold": 0.004,
+	"crossK_threshold": 1,
+	"pattern_length": 3,
+	"anomalous_window_length": 3,
+	"attribute_names": ["engrpm","EGRkgph","MSPhum","EngTq"],
+	"attribute_min_values": [800, 0, 40, 0],
+	"attribute_bin_intervals": [100, 20, 4, 140],
+	"anomalous_target_column": "AbsError",
+	"anomalous_window_strategy": "Mean_Threshold",
+	"anomalous_window_threshold": 10
+}
