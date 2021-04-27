@@ -19,3 +19,9 @@ Two ways to setting up environment:
 - **denoising_discretizer**: `python -m tests.discretize.test_denoise_discretizer`
 - **meanthreshold_binarize**:: `python -m tests.nc_window.test_meanthreshold_binarize`
 - **invalid_idx_preprocess**:: `python -m tests.preprocess.test_invalid_idx_preprocess`
+
+# Using configuration file:
+- Default configuration and data file in folder module/data
+- Can change the `default_config.json` file or provide a custom configuration and 
+run as: `python -m module.engine_client --configpath *full path of your configuration file*`
+- Details of various configuration parameters present in **config_doc.md**

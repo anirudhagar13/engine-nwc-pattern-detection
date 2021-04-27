@@ -1,6 +1,17 @@
 # Details of configuration parameters for the package:
-- **anomalous_window_strategy**: 
-	- *Mean_Threshold*: Checks if mean value of an anomalous window above threshold
-	- *Percent_Threshold*: NA
+- **lag**: lag consideration between sequence patterns and anomalous windows
+- **topk**: Top-k sequence patterns as output
+- **output_type**: Output format between ("topk" patterns or using "threshold")
+- **data_file_path**: Full path of data input file (preferred to keep in the data folder)
+- **output_file_path**: Full path of output file (preferred to keep in the data folder)
+- **support_threshold**: Support threshold for sequence co-occurrence patterns
+- **crossk_threshold**: Ripley's Cross-k threshold for sequence co-occurrence patterns
+- **pattern_length**: length of feature sequences co-occurring with anomalous windows
+- **anomalous_window_length**: length of anomalous window
 - **attribute_names**: Column names to generate candidate patterns off
+- **attribute_min_values**: List of min. values for above attributes (as manually analysed from data)
+- **attribute_bin_intervals**: List of bin intervals for above attributes (as manually analysed from data)
 - **anomalous_target_column**: Column name to find anomalous windows off
+- **anomalous_window_strategy**: 
+    - *"Mean_Threshold"*: Checks if mean value of an anomalous window above threshold
+- **anomalous_window_threshold**: value for anomalous target column to cross, to be a valid anomalous window

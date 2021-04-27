@@ -7,6 +7,8 @@ import pandas as pd
 
 from .constants import *
 
+from nwc_pattern_miner import mine_sequence_patterns
+
 from .config_parser import parse_config
 from .preprocess import InvalidIndexPreprocessor
 from .nc_window import MeanThresholdBinarizer
@@ -105,14 +107,6 @@ def main(config_path: str):
 
 
 if __name__ == '__main__':
-    # Hack before pip install
-    from sys import path
-    from os.path import dirname as dir
-
-    path.append(dir(path[0]))
-
-    from nwc_pattern_mining.module import mine_sequence_patterns
-
     # Define the parser, to read the configuration file
     parser = argparse.ArgumentParser(
         description='Finding sequential patterns in Engine Time Series data')
