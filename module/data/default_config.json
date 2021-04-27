@@ -8,7 +8,7 @@
 	"crossK_threshold": 1,
 	"pattern_length": 3,
 	"anomalous_window_length": 3,
-	"attribute_names": ["engrpm","EGRkgph","MSPhum","EngTq"],
+	"attribute_names": ["engrpm", "EGRkgph", "MSPhum", "EngTq"],
 	"attribute_min_values": [800, 0, 40, 0],
 	"attribute_bin_intervals": [100, 20, 4, 140],
 	"anomalous_target_column": "AbsError",
