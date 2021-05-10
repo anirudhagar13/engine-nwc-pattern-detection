@@ -47,6 +47,10 @@ class EngineData:
         print('\n', '-' * 20, ' | ', 'Completed Finding Anomalous Windows: ',
               num_of_nc_windows, ' | ', '-' * 20, '\n')
 
+        # raise issue if no windows found
+        if num_of_nc_windows == 0:
+            raise Exception('No Anomalous Window found. Adjust threshold.')
+
         print(self._data[feature_col_names].describe())
         self.discretize(feature_col_names)
         print('\n', '-' * 20, ' | ',

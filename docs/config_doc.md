@@ -1,17 +1,22 @@
 # Details of configuration parameters for the package:
 - **lag**: lag consideration between sequence patterns and anomalous windows
 - **topk**: Top-k sequence patterns as output
-- **output_type**: Output format between ("topk" patterns or using "threshold")
+- **output_type**: Output format between (`topk` patterns or using `threshold`)
 - **data_file_path**: Full path of data input file (preferred to keep in the data folder)
 - **output_file_path**: Full path of output file (preferred to keep in the data folder)
 - **support_threshold**: Support threshold for sequence co-occurrence patterns
 - **crossk_threshold**: Ripley's Cross-k threshold for sequence co-occurrence patterns
 - **pattern_length**: length of feature sequences co-occurring with anomalous windows
+- **split_columns**: list of columns that need to be same in a valid sequence. e.g. `pass` in OBD data. Can include multiple such columns. Leave list empty if none. 
+- **index_columns**: list of columns that need to be consecutive in a valid sequence. e.g. `Iteration` in OBD data. Can include multiple such columns. Leave list empty if none. 
 - **anomalous_window_length**: length of anomalous window
 - **attribute_names**: Column names to generate candidate patterns off
-- **attribute_min_values**: List of min. values for above attributes (as manually analysed from data)
-- **attribute_bin_intervals**: List of bin intervals for above attributes (as manually analysed from data)
+- **attribute_min_values**: List of min. values for above attributes (as manually analysed from data). Only valid for `discrete_strategy="Manual"`.
+- **attribute_bin_intervals**: List of bin intervals for above attributes (as manually analysed from data). Only valid for `discrete_strategy="Manual"`.
 - **anomalous_target_column**: Column name to find anomalous windows off
 - **anomalous_window_strategy**: 
     - *"Mean_Threshold"*: Checks if mean value of an anomalous window above threshold
 - **anomalous_window_threshold**: value for anomalous target column to cross, to be a valid anomalous window
+- **discrete_strategy**: Choice between `Denoise` and `Manual`. Manual would require explicit mention of `attribute_min_values` and `attribute_bin_intervals`, for each feature. `Denoise` would just require `n_bins`, and would do rest automatically.
+- **n_bins**: Valid for discrete_strategy: `Denoise`. Automatically finds ranges within features to have `n` number of bins.
+- **purning_type**: Choice between `[apriori, br-dr]`, both have same run-time, 'br-dr' does more enumerations but enumeration speed is faster due to UB pruning.
