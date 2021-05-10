@@ -9,20 +9,29 @@ class DenoiseDiscretizer(DiscretizationStrategy):
     def __init__(self, n_bins: int):
         self._n_bins = n_bins
 
-    def discretize(self, data: np.ndarray, col_name: str = '') -> np.ndarray:
+    def discretize(self, data: np.ndarray, col_name: str = '',
+                   n_min: float = 1.8,
+                   n_max: float = 3) -> np.ndarray:
         """Summary
         Calculates percentiles and gets n_bins between two percentiles
         """
         mean, std = data.mean(), data.std()
 
         # Denoising assuming normal distribution
-        higher_margin = mean + std
-        lower_margin = mean - std
+        higher_margin = mean + n_max * std
+        lower_margin = mean - n_min * std
+
+        # prevent lower_margin from being zero
+        lower_margin = lower_margin if lower_margin > 0 else 0
 
         gap = higher_margin - lower_margin
         bin_width = int(gap / self._n_bins) + 1
 
-        max_num, min_num = data.max(), data.min()
-        bins = [i for i in range(int(min_num), int(max_num), bin_width)]
+        # Denoising assuming normal distribution
+        def disc_fun(x): return int((x - lower_margin) // bin_width)
 
-        return np.digitize(data, bins)
+        # cutting out negative values
+        disc_values = np.array(list(map(disc_fun, data)))
+        disc_values[disc_values < 0] = 0
+
+        return disc_values

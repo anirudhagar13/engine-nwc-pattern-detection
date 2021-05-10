@@ -17,12 +17,19 @@ output_type = "output_type"
 feature_min_values = "attribute_min_values"
 feature_bin_intervals = "attribute_bin_intervals"
 topk = "topk"
+n_bins = "n_bins"
+discretization_type = "discrete_strategy"
+split_columns = "split_columns"
+index_columns = "index_columns"
+pruning_type = "pruning_type"
 
 # Data related constants
 pass_col_name = 'pass'
 iter_col_name = 'Iteration'
 target_col_name = 'NCWindow'
 seq_idx_name = 'SeqIndex'
+manual_discrete_strategy = 'Manual'
+auto_discrete_strategy = 'Denoise'
 
 # File IO related constants
 default_config_file = '/data/default_config.json'

@@ -25,3 +25,11 @@ Two ways to setting up environment:
 - Can change the `default_config.json` file or provide a custom configuration and 
 run as: `python -m module.engine_client --configpath *full path of your configuration file*`
 - Details of various configuration parameters present in **config_doc.md**
+
+# Comparison with previous project:
+- Some of the outputs might not be comparable to previous results because:
+    - In previous project, no unit tests were performed
+    - One major issue in previous project was UB pruning of middle nodes, 
+    which was happening due to non-propogation of supperpatterncount from parent nodes
+    - The above issue was leading to the previous project missing a lot of patterns
+    - The current project fixes this issue and contains all possible patterns
