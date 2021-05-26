@@ -8,7 +8,8 @@
 - **crossk_threshold**: Ripley's Cross-k threshold for sequence co-occurrence patterns
 - **pattern_length**: length of feature sequences co-occurring with anomalous windows
 - **split_columns**: list of columns that need to be same in a valid sequence. e.g. `pass` in OBD data. Can include multiple such columns. Leave list empty if none. 
-- **index_columns**: list of columns that need to be consecutive in a valid sequence. e.g. `Iteration` in OBD data. Can include multiple such columns. Leave list empty if none. 
+These columns help induce the affect avoiding creation of sequences across multiple trips.
+- **index_columns**: list of columns that need to be consecutive in a valid sequence. e.g. `Iteration` in OBD data. Can include multiple such columns. Leave list empty if none. These columns help eliminate gaps in readings due to faulty instruments. 
 - **anomalous_window_length**: length of anomalous window
 - **attribute_names**: Column names to generate candidate patterns off
 - **attribute_min_values**: List of min. values for above attributes (as manually analysed from data). Only valid for `discrete_strategy="Manual"`.
